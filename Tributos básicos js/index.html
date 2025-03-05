@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Js com DOM</title>
+<style>
+   
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        text-align: center;
+        color: #333;
+    }
+
+  
+    h1 {
+        color: black;
+        margin-top: 20px;
+    }
+
+    
+    .highlight {
+        color: #fff;
+        background-color: black;
+        border-radius: 8px;
+        padding: 10px;
+        margin: 20px auto;
+        max-width: 80%;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    
+    .special-button {
+        color: #fff;
+        background-color: #009688;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .special-button:hover {
+        background-color: #00796b;
+    }
+
+    
+    .image-container img {
+        margin-top: 30px;
+        border: 4px solid #ddd;
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    .image-container img:hover {
+        transform: scale(1.05);
+    }
+</style>
+</head>
+<body>
+    <h1 id="titulo">Olá, Bem Vindo a minha Página!</h1>
+
+    <div class="button-container">
+        <button class="special-button" onclick="trocarImagem()">Alterar Imagem</button>
+        <button class="special-button" onclick="alterarTitulo()">Alterar Título</button>
+        <button class="special-button" onclick="mudarCorParagrafo()">Mudar Parágrafo</button>
+        <button class="special-button" onclick="tocarAudio()">Reproduzir Áudio</button>
+        <button class="special-button" onclick="toggleButtonsClass()">Alterar Estilo dos Botões</button>
+    </div>
+
+    
+    <div class="image-container">
+        <img id="imagem" src="garfinho.jpg" alt="Imagem Original" width="300">
+    </div>
+
+    
+    <p id="paragrafoCentral">Olá, você está em uma página interativa de JavaScript! Aproveite e curta o momento</p>
+
+    
+    <audio id="audio" src="sad-meow-song.mp3"></audio>
+
+    <script>
+        function alterarTitulo() {
+            const titulo = document.getElementById("titulo");
+            titulo.innerText = "Título Alterado com Sucesso!";
+        }
+
+        function mudarCorParagrafo() {
+            const paragrafo = document.getElementById("paragrafoCentral");
+            paragrafo.classList.toggle("highlight");
+        }
+
+        function tocarAudio() {
+            const audio = document.getElementById("audio");
+            audio.play();
+        }
+
+        function trocarImagem() {
+            const imagem = document.getElementById("imagem");
+            imagem.src = "https://bebe.abril.com.br/wp-content/uploads/2020/10/19131109318164.jpg?quality=90&strip=info&w=1024";
+        }
+
+        function toggleButtonsClass() {
+            const buttons = document.querySelectorAll(".button-container button");
+            buttons.forEach(button => button.classList.toggle("special-button"));
+        }
+    </script>
+</body>
+</html>
